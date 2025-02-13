@@ -1,64 +1,97 @@
 baseURL = 'https://michaelmao.me/'
-languageCode = 'en-us'
-title = 'Michael Mao'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
 enableEmoji = true
 
 [params]
-  author = 'Michael Mao'
   fontawesome = '13bff49e18'
-  siteDescription = 'I am Michael Mao, I develop AI algorithms for medical purposes.'
   coverImage = '/assets/cover.webp'
-
+  
   # Pagination settings
-
   paginateTexts = 8
   paginateCards = 5
-
+  
   # Email Information
-
   emailUsername = 'yicong_mao'
   emailDomain = 'alumni.brown.edu'
-
-  # Menu Settings
-
-  [[params.menu]]
-    name = 'Home'
-    url = '/'
-  [[params.menu]]
-    name = 'Blog'
-    url = '/blog'
-  [[params.menu]]
-    name = 'Projects & Publications'
-    url = '/project'
-  [[params.menu]]
-    name = 'Photography'
-    url = '/photography'
-  [[params.menu]]
-    name = 'About'
-    url = '/about'
-
-  # Social Media Information
   
+  # Social Media Information
   [[params.contact]]
-    name = 'Google Scholar'
+    name_en = 'Google Scholar'
+    name_zh = '谷歌学术'
     icon = '<i class="fa-solid fa-graduation-cap"></i>'
     url = 'https://scholar.google.com/citations?user=uTEhFhkAAAAJ&hl=en'
   [[params.contact]]
-    name = 'Github'
+    name_en = 'Github'
+    name_zh = 'Github'
     icon = '<i class="fa-brands fa-github"></i>'
     url = 'https://github.com/michaelmyc'
   [[params.contact]]
-    name = 'LinkedIn'
+    name_en = 'LinkedIn'
+    name_zh = '领英'
     icon = '<i class="fa-brands fa-linkedin-in"></i>'
     url = 'https://www.linkedin.com/in/yicong-michael-mao/'
   [[params.contact]]
-    name = 'Twitter'
+    name_en = 'Twitter'
+    name_zh = '推特'
     icon = '<i class="fa-brands fa-twitter"></i>'
     url = 'https://twitter.com/michaelmaoyc'
   [[params.contact]]
-    name = 'Instagram'
+    name_en = 'Instagram'
+    name_zh = '照片墙'
     icon = '<i class="fa-brands fa-instagram"></i>'
     url = 'https://www.instagram.com/michaelmaoyc/'
+
+[languages]
+  [languages.en]
+    contentDir = 'content/en'
+    languageCode = 'en-us'
+    languageName = 'English'
+    title = 'Michael Mao'
+    weight = 1
+    
+    [languages.en.params]
+      author = 'Michael Mao'
+      siteDescription = 'I am Michael Mao, I develop AI algorithms for medical purposes.'
+      
+      # Menu Settings
+      [[languages.en.params.menu]]
+        name = 'Blog'
+        url = 'blog'
+      [[languages.en.params.menu]]
+        name = 'Projects'
+        url = 'project'
+      [[languages.en.params.menu]]
+        name = 'Photography'
+        url = 'photography'
+      [[languages.en.params.menu]]
+        name = 'About'
+        url = 'about'
+
+  [languages.zh]
+    contentDir = 'content/zh'
+    languageCode = 'zh-cn'
+    languageName = '中文'
+    title = 'Michael Mao'
+    weight = 2
+    
+    [languages.zh.params]
+      author = 'Michael Mao'
+      siteDescription = '我是毛逸聪，我开发医疗AI算法。'
+      
+      # Menu Settings
+      [[languages.zh.params.menu]]
+        name = '博客'
+        url = 'blog'
+      [[languages.zh.params.menu]]
+        name = '项目'
+        url = 'project'
+      [[languages.zh.params.menu]]
+        name = '摄影'
+        url = 'photography'
+      [[languages.zh.params.menu]]
+        name = '关于'
+        url = 'about'
 
 [taxonomies]
   tags = "tags"

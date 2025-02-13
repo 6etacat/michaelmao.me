@@ -1,0 +1,19 @@
+home:
+  welcome: "你好！我是毛逸聪（Michael）"
+  bio: "我在开发理解放射影像的AI系统"
+  company: "数坤科技"
+  navigation:
+    about: "关于"
+    mission: "使命"
+    cv: "简历"
+  sections:
+    blog_series: "博客系列"
+    projects: "项目与论文"
+title:
+  series: "系列"
+  tags: "标签"
+  blog: "博客"
+  project: "项目"
+  photography: "摄影"
+error:
+  not_found: "页面未找到"

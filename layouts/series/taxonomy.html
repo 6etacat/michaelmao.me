@@ -1,4 +1,4 @@
 {{ define "main" }}
-  <h1>Series</h1>
+  <h1>{{ index .Site.Data .Site.Language.Lang "title" "series" }}</h1>
   {{- partial "series-list.html" . -}}
 {{ end }}

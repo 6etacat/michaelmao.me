@@ -2,7 +2,7 @@
   <div class="contact-icons-container">
     {{ range .Site.Params.Contact }}
       <div class="contact-icon">
-        <a href='{{ index . "url" }}' target="_blank" rel="noopener" aria-label='{{ index . "name" }}'>{{ index . "icon" | safeHTML }}</a>
+        <a href='{{ index . "url" }}' target="_blank" rel="noopener" aria-label='{{ if eq $.Site.Language.Lang "en" }}{{ index . "name_en" }}{{ else }}{{ index . "name_zh" }}{{ end }}'>{{ index . "icon" | safeHTML }}</a>
       </div>
     {{ end }}
   </div>

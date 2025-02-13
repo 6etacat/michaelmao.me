@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ partial "functions/load-scss.html" "scss/pages/home.scss" }}
+{{ partial "functions/load-scss.html" "scss/pages/list.scss" }}
+
+<section class="bio-panel">
+  <div class="bio-image">
+    <img src="/profile.webp" alt="">
+  </div>
+  <div class="bio-text">
+    <h1 class="bio-welcome">{{ index .Site.Data .Site.Language.Lang "home" "welcome" }}</h1>
+    <h2 class="dark">
+      {{ index .Site.Data .Site.Language.Lang "home" "bio" }}
+      <a href="https://www.shukun.net/" target="_blank" rel="noopener">@{{ index .Site.Data .Site.Language.Lang "home" "company" }}</a>.
+    </h2>
+    <p class="cv-links">
+      <a href="{{ "about" | relLangURL }}">{{ index .Site.Data .Site.Language.Lang "home" "navigation" "about" }}</a> / 
+      <a href="{{ "mission" | relLangURL }}">{{ index .Site.Data .Site.Language.Lang "home" "navigation" "mission" }}</a> / 
+      <a href="/Michael_Mao_CV.pdf" target="_blank" rel="noopener">{{ index .Site.Data .Site.Language.Lang "home" "navigation" "cv" }}</a>
+    </p>
+  </div>
+</section>
+
+<section class="spotlight">
+  <h2 class="section-title">{{ index .Site.Data .Site.Language.Lang "home" "sections" "blog_series" }}</h2>
+  <div class="list-container">
+    {{ partial "card.html" (dict "Site" .Site "url" "series/neural-network-intuitions" "include_image" true) }}
+  </div>
+</section>
+
+<section class="spotlight">
+  <h2 class="section-title">{{ index .Site.Data .Site.Language.Lang "home" "sections" "projects" }}</h2>
+  <div class="list-container">
+    {{ partial "card.html" (dict "Site" .Site "url" "project/okai" "include_image" false) }}
+    {{ partial "card.html" (dict "Site" .Site "url" "project/deepsqueeze" "include_image" false) }}
+    {{ partial "card.html" (dict "Site" .Site "url" "project/hustl" "include_image" false) }}
+  </div>
+</section>
+
+{{ partial "contact.html" . }}
+{{ end }}

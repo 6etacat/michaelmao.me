@@ -1,14 +1,18 @@
 <header>
   <div class="widescreen">
-    <a href="/" class="unselectable header-title">{{ .Site.Title }}</a>
-    <nav>
-      {{ range site.Params.Menu }}
-        <a class="unselectable" href='{{ index . "url" }}'>{{ index . "name" }}</a>
-      {{ end }}
-    </nav>
+    <a href="{{ .Site.Home.RelPermalink }}" class="unselectable header-title">{{ .Site.Title }}</a>
+    <div class="header-right">
+      <nav>
+        {{ range .Site.Params.Menu }}
+          <a class="unselectable" href='{{ index . "url" | relLangURL }}'>{{ index . "name" }}</a>
+        {{ end }}
+      </nav>
+      {{ partial "language-switcher.html" . }}
+    </div>
   </div>
   <div class="mobile">
     <div id="burger-icon-container">
+      {{ partial "language-switcher.html" . }}
       <div id="burger-icon">
         <div></div>
         <div class="burger-icon-middle"></div>
@@ -16,8 +20,8 @@
       </div>
     </div>
     <nav id="burger-menu">
-      {{ range site.Params.Menu }}
-        <a href='{{ index . "url" }}'>{{ index . "name" }}</a>
+      {{ range .Site.Params.Menu }}
+        <a href='{{ index . "url" | relLangURL }}'>{{ index . "name" }}</a>
       {{ end }}
     </nav>
     <div id="burger-mask"></div>
@@ -82,5 +86,37 @@
     };
 
     window.onscroll = adjustHeaderStyles;
+  </script>
+
+  <script>
+    // Language switcher functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const languageSwitchers = document.querySelectorAll('.language-switcher');
+      
+      languageSwitchers.forEach(switcher => {
+        const button = switcher.querySelector('.language-switcher__button');
+        
+        // Toggle dropdown on button click
+        button.addEventListener('click', (e) => {
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', !isExpanded);
+          e.stopPropagation();
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!switcher.contains(e.target)) {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Close dropdown on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    });
   </script>
 </header>

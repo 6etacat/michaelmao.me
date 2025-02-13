@@ -1,0 +1,19 @@
+<div class="language-switcher">
+  <button class="language-switcher__button" aria-haspopup="true" aria-expanded="false">
+    <i class="fa-solid fa-language"></i>
+    <span class="language-switcher__arrow">▾</span>
+  </button>
+  <ul class="language-switcher__dropdown">
+    {{ $siteLanguage := .Site.Language }}
+    <li>
+      <a href="{{ $.Page.Permalink | replaceRE (print "/" $siteLanguage.Lang "/") "/en/" }}">
+        English
+      </a>
+    </li>
+    <li>
+      <a href="{{ $.Page.Permalink | replaceRE (print "/" $siteLanguage.Lang "/") "/zh/" }}">
+        中文
+      </a>
+    </li>
+  </ul>
+</div>

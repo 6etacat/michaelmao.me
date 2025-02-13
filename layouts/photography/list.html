@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1>{{ index .Site.Data .Site.Language.Lang "title" "photography" }}</h1>
   {{ partial "functions/load-scss.html" "scss/pages/photography.scss" }}
   <div class="masonry unselectable">
     {{ range sort .Pages "Weight" }}

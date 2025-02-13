@@ -21,11 +21,17 @@ header {
     justify-content: space-between;
     background: $background;
 
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
     nav {
       display: flex;
       align-items: center;
       justify-content: right;
       gap: $header-nav-gap;
+      padding-right: $header-right-gap;
 
       a {
         color: $main;
@@ -46,6 +52,21 @@ header {
       a:hover:after {
         left: 0;
         width: 100%;
+      }
+    }
+
+    .language-switcher {
+      padding-left: $header-right-gap;
+      border-left: 1px solid $main;
+
+      span.current {
+        color: $main;
+        opacity: 0.6;
+      }
+
+      a {
+        color: $main;
+        text-decoration: none;
       }
     }
 
@@ -104,6 +125,27 @@ header {
         justify-content: center;
         height: 4em;
         width: 100vw;
+      }
+
+      .language-switcher-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        width: 100%;
+        padding: 1em 0;
+        border-top: 1px solid rgba($main, 0.2);
+
+        span.current {
+          color: $main;
+          opacity: 0.6;
+          font-size: 1.5em;
+        }
+
+        a {
+          height: auto;
+          width: auto;
+        }
       }
     }
 

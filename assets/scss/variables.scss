@@ -12,6 +12,7 @@ $header-height: 160px;
 $min-header-height: 80px;
 $header-padding: 80px;
 $header-nav-gap: 60px;
+$header-right-gap: calc(#{$header-nav-gap} / 2);
 
 // Burger menu variables (if you change this, please make appropriate changes in layouts/partials/head.html)
 $top-bar-height: 4em;

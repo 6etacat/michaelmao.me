@@ -1,0 +1,19 @@
+home:
+  welcome: "Hi! this is Michael"
+  bio: "I am building AI systems that understand radiology"
+  company: "Shukun"
+  navigation:
+    about: "About"
+    mission: "Mission"
+    cv: "CV"
+  sections:
+    blog_series: "Blog Series"
+    projects: "Projects"
+title:
+  series: "Series"
+  tags: "Tags"
+  blog: "Blog"
+  project: "Projects"
+  photography: "Photography"
+error:
+  not_found: "Page Not Found"

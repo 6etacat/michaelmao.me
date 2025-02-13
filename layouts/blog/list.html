@@ -1,4 +1,19 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{- partial "text-list.html" . -}}
+  {{ partial "functions/load-scss.html" "scss/pages/list.scss" }}
+  <h1>{{ index .Site.Data .Site.Language.Lang "title" "blog" }}</h1>
+  {{ $pages := where .Site.RegularPages "Section" "blog" }}
+  {{ $pages := where $pages ".Language.Lang" .Site.Language.Lang }}
+  {{ if gt ( len $pages ) 0 }}
+    {{ $groupedBlogs := $pages.GroupByDate "January, 2006" }}
+    {{ $paginator := .Paginate $groupedBlogs .Site.Params.PaginateTexts }}
+    {{ range $paginator.PageGroups }}
+      <h2 class="date-group">{{ .Key }}</h2>
+      <div class="list-container">
+        {{ range sort .Pages "Date" "desc" }}
+          {{- partial "text-entry.html" . -}}
+        {{ end }}
+      </div>
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+  {{ end }}
 {{ end }}

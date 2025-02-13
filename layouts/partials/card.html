@@ -1,0 +1,15 @@
+{{ $url := .url }}
+{{ $includeImage := .include_image }}
+{{ with .Site.GetPage $url }}
+  <a class="list-item card" href="{{ .RelPermalink }}">
+    {{ if $includeImage }}
+      {{ partial "functions/dynamic-img.html" ( dict "Context" . "ImagePath" .Params.CardImage "Alt" "cover image" "Class" "card-cover-image" ) }}
+    {{ end }}
+    <div class="card-text">
+      <div class="list-title-line">
+        <h3>{{ .Title }}</h3>
+      </div>
+      <p class="dark">{{ .Params.Description }}</p>
+    </div>
+  </a>
+{{ end }}

@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ partial "functions/load-scss.html" "scss/pages/collections.scss" }}
-  <h1>Tags</h1>
+  <h1>{{ index .Site.Data .Site.Language.Lang "title" "tags" }}</h1>
   <div class="tags-container">
     {{ $tags := slice }}
     {{ range .Pages }}

@@ -1,4 +1,4 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1>{{ index .Site.Data .Site.Language.Lang "title" "project" }}</h1>
   {{- partial "card-list.html" (dict "Context" . "GroupByDate" false) -}}
 {{ end }}
