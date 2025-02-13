@@ -194,9 +194,3 @@ def hello_world():
 ### 表情符号
 
 表情符号可以通过`:emoji_name:`来渲染。:smile:
-
-### GitHub Gist
-
-GitHub Gists可以通过"{{\< gist username gist_id \>}}"嵌入：
-
-{{< gist michaelmyc a4e02a04cbb3e526d029bb0f21e1f959 >}}

@@ -190,9 +190,3 @@ Some text[^1].
 ### Emoji
 
 Emojis can be rendered with `:emoji_name:`. :smile:
-
-### GitHub Gist
-
-GitHub Gists can be embedded with "{{\< gist username gist_id \>}}":
-
-{{< gist michaelmyc a4e02a04cbb3e526d029bb0f21e1f959 >}}
