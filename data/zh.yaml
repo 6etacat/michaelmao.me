@@ -7,8 +7,9 @@ home:
     mission: "使命"
     cv: "简历"
   sections:
-    blog_series: "博客系列"
-    projects: "项目与论文"
+    blog_series: "系列博客"
+    projects: "项目"
+    contact: "联系我"
 title:
   series: "系列"
   tags: "标签"

@@ -5,7 +5,7 @@ authors: "Amir Ilkhechi, Andrew Crotty, Alex Galakatos, Yicong Mao, Grace Fan, X
 date: 2020-01-01
 draft: false
 weight: 0
-description: "发表于SIGMOD 2020"
+description: "基于深度学习的表格数据压缩论文，发表于SIGMOD 2020"
 coverImage: "deepsqueeze.png" # a 5:1 image with important content in the center 1/3 zone for best effect
 cardImage: "deepsqueeze.png" # a thin image/video featured on cards
 publication: "Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data"

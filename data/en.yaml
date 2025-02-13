@@ -9,6 +9,7 @@ home:
   sections:
     blog_series: "Blog Series"
     projects: "Projects"
+    contact: "Contact"
 title:
   series: "Series"
   tags: "Tags"
