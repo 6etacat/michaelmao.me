@@ -1,10 +1,19 @@
 {{ if and ( isset . "ImagePath" ) ( ne .ImagePath "" ) }}
   {{ $fname := lower .ImagePath }}
   {{ $pageImage := .Context.Page.Resources.GetMatch .ImagePath }}
-  {{ $urlImage := resources.GetRemote ( .ImagePath | safeURL ) }}
   {{ $isPageResource := ne $pageImage nil }}
+  {{ $isRemoteResource := or (hasPrefix .ImagePath "http://") (hasPrefix .ImagePath "https://") }}
+  
+  {{ $image := "" }}
+  {{ if $isPageResource }}
+    {{ $image = $pageImage }}
+  {{ else if $isRemoteResource }}
+    {{ $image = resources.GetRemote ( .ImagePath | safeURL ) }}
+  {{ else }}
+    {{ $image = resources.Get .ImagePath }}
+  {{ end }}
 
-  {{ $image := cond $isPageResource $pageImage $urlImage }}
+  {{ if $image }}
   <picture class="{{ .ContainerClass }}">
     {{ if or ( hasSuffix $fname "mp4" ) ( hasSuffix $fname "webm" ) ( hasSuffix $fname "ogg" ) }}
       <video playsinline="" autoplay="" loop="" muted="" class="dynamic-image {{ .Class }}" src="{{ $image.RelPermalink | safeURL }}" />
@@ -27,4 +36,5 @@
       />
     {{ end }}
   </picture>
+  {{ end }}
 {{ end }}
